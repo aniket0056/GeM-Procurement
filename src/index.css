@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: #1e3a8a;
+    --primary-light: #3b82f6;
+    --primary-dark: #0f172a;
+    --gov-blue: #1e40af;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Custom Scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+}
+
+@layer components {
+  .gov-badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider border shadow-sm;
+  }
+
+  .enterprise-card {
+    @apply bg-white border border-slate-200/80 rounded-xl shadow-card transition-all duration-200 hover:shadow-card-hover;
+  }
+
+  .interactive-table {
+    @apply w-full text-left border-collapse text-sm;
+  }
+
+  .interactive-table th {
+    @apply bg-slate-50/90 text-slate-600 font-semibold px-4 py-3 border-b border-slate-200 text-xs uppercase tracking-wider sticky top-0;
+  }
+
+  .interactive-table td {
+    @apply px-4 py-3.5 border-b border-slate-100 text-slate-700 transition-colors;
+  }
+
+  .interactive-table tr:hover td {
+    @apply bg-slate-50/70;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-900 text-white font-medium text-sm shadow-sm hover:bg-blue-950 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition-all active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-white text-slate-700 font-medium text-sm border border-slate-300 shadow-sm hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition-all active:scale-[0.98];
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-rose-600 text-white font-medium text-sm shadow-sm hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 transition-all active:scale-[0.98];
+  }
+}
+
+/* Document highlight styling */
+.doc-highlight-match {
+  background-color: rgba(254, 240, 138, 0.6);
+  border-bottom: 2px solid #eab308;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.doc-highlight-deviation {
+  background-color: rgba(254, 202, 202, 0.7);
+  border-bottom: 2px solid #ef4444;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.doc-highlight-compliant {
+  background-color: rgba(187, 247, 208, 0.7);
+  border-bottom: 2px solid #10b981;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .enterprise-card {
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+  }
+}
